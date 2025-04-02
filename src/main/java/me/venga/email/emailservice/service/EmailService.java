@@ -1,8 +1,10 @@
-package me.venga.email.emailservice.service.impl;
+package me.venga.email.emailservice.service;
 
-import me.venga.email.emailservice.dto.request.EmailRequestDTO;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface EmailService {
-    String sendMailText(EmailRequestDTO emailRequest);
-    String sendMailHtml(EmailRequestDTO emailRequest);
+    String sendMailText(String recipient, String subject, String message);
+    String sendMailHtml(String recipient, String subject, String messageContent);
+    String sendMailHtmlWithAttachment(String recipient, String subject, String messageContent, MultipartFile[] files);
+    String loadTemplate() throws Exception;
 }
